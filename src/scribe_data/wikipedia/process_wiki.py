@@ -33,6 +33,7 @@ import numpy as np
 import regex
 from SPARQLWrapper import JSON, POST, SPARQLWrapper
 from tqdm.auto import tqdm
+from scribe_data.wikidata.wikidata_utils import sparql 
 
 from scribe_data.utils import (
     get_language_qid,
@@ -42,11 +43,6 @@ from scribe_data.utils import (
 )
 
 warnings.filterwarnings("ignore", message=r"Passing", category=FutureWarning)
-
-# Set SPARQLWrapper query conditions.
-sparql = SPARQLWrapper("https://query.wikidata.org/sparql")
-sparql.setReturnFormat(JSON)
-sparql.setMethod(POST)
 
 
 def clean(
